@@ -1,14 +1,5 @@
-<template>
-  <h1>{{ msg }}</h1>
-  <p>count: {{ count }}</p>
-  <p>double count: {{ doubleCount }}</p>
-  <button v-on:click="plus">增加</button>
-  <button v-on:click="reduce">减少</button>
-</template>
-
-<script>
 import { ref, computed } from "vue";
-export default {
+const __default__ = {
   props: {
     msg: String,
   },
@@ -36,10 +27,16 @@ export default {
     };
   },
 };
-</script>
 
-<style scoped>
-p {
-  color: v-bind(color);
+import { useCssVars as _useCssVars } from 'vue'
+const __injectCSSVars__ = () => {
+  _useCssVars(_ctx => ({
+    "6de5ab34-color": (_ctx.color)
+  }))
 }
-</style>
+const __setup__ = __default__.setup
+__default__.setup = __setup__
+  ? (props, ctx) => { __injectCSSVars__(); return __setup__(props, ctx) }
+  : __injectCSSVars__
+
+export default __default__

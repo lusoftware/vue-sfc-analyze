@@ -1,4 +1,4 @@
 import { createApp } from 'vue';
-import App from './index.vue';
+import App from './index.setup.vue';
 
-createApp(App).mount('#root');
+createApp(App, { msg: 'hello world' }).mount('#root');
